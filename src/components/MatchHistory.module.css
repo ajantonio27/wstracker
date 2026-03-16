@@ -1,0 +1,132 @@
+.wrap {}
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px; flex-wrap: wrap; gap: 8px;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 17px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+}
+
+.filters { display: flex; gap: 4px; }
+
+.filterBtn {
+  font-size: 11px; font-weight: 600;
+  padding: 4px 11px; border-radius: 3px;
+  border: 1px solid var(--border2);
+  color: var(--text2); background: var(--surface);
+  transition: all .15s; text-transform: uppercase; letter-spacing: .5px;
+}
+.filterBtn:hover { border-color: var(--border2); color: var(--text); background: var(--surface2); }
+.filterBtn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  box-shadow: 0 0 8px var(--accent-dim);
+}
+
+.list { display: flex; flex-direction: column; gap: 5px; }
+
+.match {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--border3);
+  border-radius: var(--r-sm);
+  padding: 10px 12px;
+  overflow: hidden;
+  transition: border-color .18s;
+  animation: matchIn .3s var(--ease) both;
+}
+
+@keyframes matchIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.match:hover { border-color: var(--border2); }
+
+.resultStripe {
+  position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+.win {
+  background: linear-gradient(90deg, rgba(46,204,113,0.06) 0%, var(--surface) 25%);
+}
+.win .resultStripe { background: var(--green); box-shadow: 1px 0 6px var(--green); }
+
+.loss {
+  background: linear-gradient(90deg, rgba(255,71,87,0.06) 0%, var(--surface) 25%);
+}
+.loss .resultStripe { background: var(--red); box-shadow: 1px 0 6px var(--red); }
+
+/* Hero */
+.heroWrap { display: flex; align-items: center; gap: 8px; min-width: 130px; }
+
+.heroIcon {
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.heroName { font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 1px; }
+.heroRole { font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
+
+/* Result */
+.resultWrap { display: flex; flex-direction: column; gap: 3px; align-items: flex-start; min-width: 75px; }
+
+.resultBadge {
+  font-family: var(--display); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; padding: 2px 8px; border-radius: 3px;
+  text-transform: uppercase;
+}
+.winBadge  { background: rgba(46,204,113,0.15);  color: var(--green); border: 1px solid rgba(46,204,113,0.3); }
+.lossBadge { background: rgba(255,71,87,0.12);   color: var(--red);   border: 1px solid rgba(255,71,87,0.25); }
+
+.mvpBadge {
+  font-size: 9px; font-weight: 700;
+  background: var(--gold-dim);
+  color: var(--gold); border: 1px solid rgba(255,204,68,0.3);
+  padding: 1px 6px; border-radius: 3px; text-transform: uppercase; letter-spacing: .5px;
+}
+
+.modeBadge { font-size: 9.5px; color: var(--text3); text-transform: uppercase; letter-spacing: .3px; }
+
+/* KDA */
+.kdaBlock { text-align: center; flex: 1; }
+
+.kdaMain {
+  font-family: var(--display);
+  font-size: 16px; font-weight: 700;
+  display: flex; align-items: center; gap: 2px;
+  justify-content: center; line-height: 1;
+}
+.kills   { color: var(--green); }
+.deaths  { color: var(--red); }
+.assists { color: var(--gold); }
+.kdaSep  { color: var(--text3); font-size: 12px; }
+
+.kdaRatio { font-size: 10.5px; font-weight: 700; margin-top: 2px; text-transform: uppercase; letter-spacing: .3px; }
+
+/* Extras */
+.extras { display: flex; gap: 12px; }
+
+.extra { text-align: center; }
+.extraVal { display: block; font-family: var(--display); font-size: 13px; font-weight: 700; color: var(--text); line-height: 1; }
+.extraLabel { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: .4px; margin-top: 1px; }
+
+/* Time */
+.time { text-align: right; min-width: 65px; }
+.duration { font-size: 12px; font-weight: 600; color: var(--text2); }
+.ago { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
+.empty { padding: 28px; text-align: center; color: var(--text3); font-size: 13px; }
+
+@media (max-width: 640px) {
+  .extras { display: none; }
+  .heroWrap { min-width: 0; }
+}

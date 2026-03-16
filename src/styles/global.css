@@ -1,0 +1,109 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── ML-accurate background ── */
+  --bg:        #04060d;
+  --bg2:       #070c16;
+  --surface:   #0d1526;
+  --surface2:  #111e34;
+  --surface3:  #172440;
+  --glass:     rgba(255,255,255,0.03);
+
+  /* ── ML Blue accent (main UI color) ── */
+  --accent:      #3d8bff;
+  --accent-glow: rgba(61,139,255,0.3);
+  --accent-dim:  rgba(61,139,255,0.12);
+  --accent-bright: #5ba3ff;
+
+  /* ── ML Gold (rank / MVP / premium) ── */
+  --gold:        #ffcc44;
+  --gold-dark:   #e6a800;
+  --gold-glow:   rgba(255,204,68,0.35);
+  --gold-dim:    rgba(255,204,68,0.12);
+
+  /* ── ML Red (damage / loss) ── */
+  --red:       #ff4757;
+  --red-dim:   rgba(255,71,87,0.15);
+
+  /* ── ML Green (win / healing) ── */
+  --green:     #2ecc71;
+  --green-dim: rgba(46,204,113,0.12);
+
+  /* ── ML Purple (mage / assassin) ── */
+  --purple:    #9b59b6;
+  --purple-bright: #c39bd3;
+
+  /* ── ML Cyan (skill effects) ── */
+  --cyan:      #00d2ff;
+  --cyan-dim:  rgba(0,210,255,0.12);
+
+  /* ── Text ── */
+  --text:      #e8f0ff;
+  --text2:     #7a90b8;
+  --text3:     #3a4d6b;
+
+  /* ── Borders ── */
+  --border:    rgba(61,139,255,0.08);
+  --border2:   rgba(61,139,255,0.18);
+  --border3:   rgba(255,255,255,0.05);
+
+  /* ── Typography ── */
+  --font:      'Inter', sans-serif;
+  --display:   'Rajdhani', sans-serif;
+
+  /* ── Layout ── */
+  --r:         10px;
+  --r-sm:      6px;
+  --r-xs:      4px;
+  --nav-h:     56px;
+
+  --ease:      cubic-bezier(0.22, 0.68, 0, 1.2);
+  --ease-s:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ML-style diagonal line background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(61,139,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,139,255,0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette on edges */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(4,6,13,0.7) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root { position: relative; z-index: 1; }
+
+img { display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font); border: none; background: none; }
+input, select { font-family: var(--font); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 2px; }
+
+::selection { background: var(--accent); color: #fff; }
